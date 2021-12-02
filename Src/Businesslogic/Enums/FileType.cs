@@ -9,9 +9,11 @@ namespace Businesslogic.Enums
     {
         [FileName("input-1.txt")]
         Test1,
-        [FileName("input-1-test.txt")]
-        Test1Test,
+        [FileName("input-1.sample.txt")]
+        Test1Sample,
         [FileName("input-2.txt")]
-        Test2
+        Test2,
+        [FileName("input-2.sample.txt")]
+        Test2Sample,
     }
 }

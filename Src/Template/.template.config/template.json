@@ -1,0 +1,9 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "Ferdi",
+    "classifications": [ "Common", "Console" ],
+    "identity": "AventOfCode.ConsoleTemplate.CSharp",
+    "name": "Advent of Code",
+    "shortName": "aocday",
+    "sourceName": "Template"
+}

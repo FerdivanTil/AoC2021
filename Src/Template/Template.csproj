@@ -6,11 +6,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="pastel" Version="3.0.0" />
+    <Content Include=".template.config\template.json" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\businesslogic\Businesslogic.csproj" />
+    <PackageReference Include="Pastel" Version="3.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Businesslogic\Businesslogic.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -18,6 +22,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="input-1.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="input-2.sample.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="input-2.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

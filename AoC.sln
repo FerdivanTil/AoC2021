@@ -14,6 +14,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Businesslogic", "Src\Busine
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day2", "Src\Day2\Day2.csproj", "{CC5D4844-A2D7-44B9-B7AE-B75589282897}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Template", "Src\Template\Template.csproj", "{37FF995A-88E0-479E-86BD-EF8486922F12}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{328103CC-6EFE-4EE0-8558-45FE88089094}"
+	ProjectSection(SolutionItems) = preProject
+		Docs\CreateNewDay.md = Docs\CreateNewDay.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,9 +39,16 @@ Global
 		{CC5D4844-A2D7-44B9-B7AE-B75589282897}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC5D4844-A2D7-44B9-B7AE-B75589282897}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC5D4844-A2D7-44B9-B7AE-B75589282897}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37FF995A-88E0-479E-86BD-EF8486922F12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37FF995A-88E0-479E-86BD-EF8486922F12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37FF995A-88E0-479E-86BD-EF8486922F12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37FF995A-88E0-479E-86BD-EF8486922F12}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{37FF995A-88E0-479E-86BD-EF8486922F12} = {F325C54E-9B5C-4958-851A-FB54FC85FE7B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CDE9AD21-06AD-4BCB-9CA8-1F4C717EDA00}

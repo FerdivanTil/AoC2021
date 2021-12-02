@@ -12,9 +12,9 @@ namespace Day2
     {
         static void Main(string[] args)
         {
-            Helper.WriteResult(Test1, FileType.Test1Test);
+            Helper.WriteResult(Test1, FileType.Test1Sample);
             Helper.WriteResult(Test1, FileType.Test1);
-            Helper.WriteResult(Test2, FileType.Test1Test);
+            Helper.WriteResult(Test2, FileType.Test1Sample);
             Helper.WriteResult(Test2, FileType.Test1);
         }
 
