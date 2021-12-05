@@ -19,11 +19,13 @@ namespace Template
         private static int Test1(List<string> input)
         {
             throw new NotImplementedException();
+            return 0;
         }
 
         private static int Test2(List<string> input)
         {
             throw new NotImplementedException();
+            return 0;
         }
     }
 }
