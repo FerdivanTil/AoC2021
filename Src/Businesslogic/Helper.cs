@@ -22,5 +22,11 @@ namespace Businesslogic
             var result1Test = func(GetFileContents(fileType));
             Console.WriteLine($"Result of {fileType} is: {result1Test.ToString().Pastel(Color.Red)}");
         }
+
+        public static void WriteResult(Func<List<string>, long> func, FileType fileType)
+        {
+            var result1Test = func(GetFileContents(fileType));
+            Console.WriteLine($"Result of {fileType} is: {result1Test.ToString().Pastel(Color.Red)}");
+        }
     }
 }
