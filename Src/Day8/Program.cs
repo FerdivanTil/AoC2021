@@ -53,8 +53,10 @@ namespace Day8
         public void Decode()
         {
             var totalList = InputSet.Union(OutputSet).ToList();
-            var codes = Enumerable.Range(0,10).Select(i => "").ToList();
-            var positions = new List<string>();
+            var codes = Enumerable.Range(0,10).Select(_ => string.Empty).ToList();
+
+            Func<string, string, bool> contains = (first, second ) => first.ToArray().All(x => second.ToArray().Contains(x));
+            Func<string, string, string> except = (first, second ) => string.Concat(first.ToArray().Except(second.ToArray()));
 
             // Get get the easy ones first
             // Lets decode the 1
@@ -65,47 +67,34 @@ namespace Day8
             codes[4] = totalList.First(i => i.Length == 4);
             // Lets decode the 8
             codes[8] = totalList.First(i => i.Length == 7);
-            //positions[1] = codes[7].ToArray().Where(i => !codes[1].ToArray().Contains(i)).First().ToString();
 
             // Lets decode the 9
-            codes[9] = totalList.First(i => i.Length == 6 && i.ToArray().Intersect(codes[4].ToArray()).Count() == 4);
+            codes[9] = totalList.First(i => i.Length == 6 && contains(codes[4], i));
 
             // Lets decode the 5
-            codes[5] = totalList.First(i => i.Length == 5 
-                                        && i.ToArray()
-                                           .Intersect(codes[4].ToArray()
-                                                              .Except(codes[1].ToArray())
-                                                     )
-                                           .Count() == 2);
+            codes[5] = totalList.First(i => i.Length == 5 && contains(except(codes[4], codes[1]), i));
 
             // Lets decode the 3 => not 5 and intersect (1) == 2
             codes[3] = totalList.First(i => i.Length == 5
                                         && i != codes[5]
-                                        && i.ToArray()
-                                           .Intersect(codes[1].ToArray()
-                                                     )
-                                           .Count() == 2);
+                                        && contains(codes[1], i));
 
             // Lets decode the 2 => not 3 and not 5
             codes[2] = totalList.First(i => i.Length == 5 && i != codes[3] && i != codes[5]);
 
             // Lets decode the 6 => not 9 and same as 5
-            codes[6] = totalList.First(i => i.Length == 6 
-                                        && i != codes[9]
-                                        && i.ToArray()
-                                           .Intersect(codes[5].ToArray())
-                                           .Count() == 5);
+            codes[6] = totalList.First(i => i.Length == 6 && i != codes[9] && contains(codes[5], i));
 
             // Lets decode the 0 => not 9 and same as 5
-            codes[0] = totalList.First(i => i.Length == 6
-                                        && i != codes[6]
-                                        && i != codes[9]);
+            codes[0] = totalList.First(i => i.Length == 6 && i != codes[6] && i != codes[9]);
+
+            Func<List<string>, string, int> find = (input, search) => input.IndexOf(input.First(i => i.Length == search.Length && i.Intersect(search).Count() == search.Length));
 
             //Calculate result
-            Result += codes.IndexOf(codes.Where(i => i.Length == OutputSet[0].Length && i.Intersect(OutputSet[0]).Count() == OutputSet[0].Length).First()) * 1000;
-            Result += codes.IndexOf(codes.Where(i => i.Length == OutputSet[1].Length && i.Intersect(OutputSet[1]).Count() == OutputSet[1].Length).First()) * 100;
-            Result += codes.IndexOf(codes.Where(i => i.Length == OutputSet[2].Length && i.Intersect(OutputSet[2]).Count() == OutputSet[2].Length).First()) * 10;
-            Result += codes.IndexOf(codes.Where(i => i.Length == OutputSet[3].Length && i.Intersect(OutputSet[3]).Count() == OutputSet[3].Length).First());
+            Result += find(codes, OutputSet[0]) * 1000;
+            Result += find(codes, OutputSet[1]) * 100;
+            Result += find(codes, OutputSet[2]) * 10;
+            Result += find(codes, OutputSet[3]);
         }
     }
 }
