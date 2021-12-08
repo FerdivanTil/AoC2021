@@ -68,16 +68,14 @@ namespace Day8
             // Lets decode the 8
             codes[8] = totalList.First(i => i.Length == 7);
 
-            // Lets decode the 9
+            // Lets decode the 9 same as 4
             codes[9] = totalList.First(i => i.Length == 6 && contains(codes[4], i));
 
-            // Lets decode the 5
+            // Lets decode the 5 => same as 4 - 1
             codes[5] = totalList.First(i => i.Length == 5 && contains(except(codes[4], codes[1]), i));
 
-            // Lets decode the 3 => not 5 and intersect (1) == 2
-            codes[3] = totalList.First(i => i.Length == 5
-                                        && i != codes[5]
-                                        && contains(codes[1], i));
+            // Lets decode the 3 => not 5 and same as 1
+            codes[3] = totalList.First(i => i.Length == 5 && i != codes[5] && contains(codes[1], i));
 
             // Lets decode the 2 => not 3 and not 5
             codes[2] = totalList.First(i => i.Length == 5 && i != codes[3] && i != codes[5]);
@@ -85,7 +83,7 @@ namespace Day8
             // Lets decode the 6 => not 9 and same as 5
             codes[6] = totalList.First(i => i.Length == 6 && i != codes[9] && contains(codes[5], i));
 
-            // Lets decode the 0 => not 9 and same as 5
+            // Lets decode the 0 => not 6 and not 9
             codes[0] = totalList.First(i => i.Length == 6 && i != codes[6] && i != codes[9]);
 
             Func<List<string>, string, int> find = (input, search) => input.IndexOf(input.First(i => i.Length == search.Length && i.Intersect(search).Count() == search.Length));
